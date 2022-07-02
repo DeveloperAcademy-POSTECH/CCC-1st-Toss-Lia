@@ -59,7 +59,3 @@ extension HomeViewController {
     }
 
 }
-
-enum ImageLiteral {
-    static let logo = "toss"
-}

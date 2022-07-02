@@ -14,6 +14,8 @@
 		AEB7C436286E861F00FFE98A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEB7C434286E861F00FFE98A /* LaunchScreen.storyboard */; };
 		AEB7C43F286FDC5F00FFE98A /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = AEB7C43E286FDC5F00FFE98A /* .swiftlint.yml */; };
 		AEB7C4412870245E00FFE98A /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7C4402870245E00FFE98A /* CustomTabBarController.swift */; };
+		AEB7C44328709C9900FFE98A /* ImageLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7C44228709C9900FFE98A /* ImageLiteral.swift */; };
+		AEB7C44528709CE500FFE98A /* CALayer+RoundedBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7C44428709CE500FFE98A /* CALayer+RoundedBorder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		AEB7C437286E861F00FFE98A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEB7C43E286FDC5F00FFE98A /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		AEB7C4402870245E00FFE98A /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		AEB7C44228709C9900FFE98A /* ImageLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiteral.swift; sourceTree = "<group>"; };
+		AEB7C44428709CE500FFE98A /* CALayer+RoundedBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+RoundedBorder.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				AEB7C42B286E861C00FFE98A /* SceneDelegate.swift */,
 				AEB7C4402870245E00FFE98A /* CustomTabBarController.swift */,
 				AEB7C42D286E861C00FFE98A /* HomeViewController.swift */,
+				AEB7C44228709C9900FFE98A /* ImageLiteral.swift */,
+				AEB7C44428709CE500FFE98A /* CALayer+RoundedBorder.swift */,
 				AEB7C432286E861F00FFE98A /* Assets.xcassets */,
 				AEB7C434286E861F00FFE98A /* LaunchScreen.storyboard */,
 				AEB7C437286E861F00FFE98A /* Info.plist */,
@@ -163,9 +169,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEB7C42E286E861C00FFE98A /* HomeViewController.swift in Sources */,
+				AEB7C44528709CE500FFE98A /* CALayer+RoundedBorder.swift in Sources */,
 				AEB7C42A286E861C00FFE98A /* AppDelegate.swift in Sources */,
 				AEB7C4412870245E00FFE98A /* CustomTabBarController.swift in Sources */,
 				AEB7C42C286E861C00FFE98A /* SceneDelegate.swift in Sources */,
+				AEB7C44328709C9900FFE98A /* ImageLiteral.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -106,14 +106,3 @@ extension CustomTabBarController {
     }
 
 }
-
-extension CALayer {
-
-    func applyRoundedBorder() {
-        borderWidth = 0.5
-        borderColor = UIColor.tertiaryLabel.cgColor
-        masksToBounds = true
-        cornerRadius = 30
-    }
-
-}
