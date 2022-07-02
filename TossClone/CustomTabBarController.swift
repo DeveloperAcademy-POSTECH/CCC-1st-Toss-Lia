@@ -49,7 +49,7 @@ final class CustomTabBarController: UITabBarController {
         func viewController() -> UIViewController {
             switch self {
             case .home:
-                return ViewController()
+                return HomeViewController()
             case .benefit:
                 return UIViewController()
             case .remit:
@@ -84,7 +84,7 @@ extension CustomTabBarController {
         tabBar.barTintColor = .lightGray
         tabBar.tintColor = .label
     }
-    
+
     private func setTabBarFrame() {
         var tabFrame = tabBar.frame
         tabFrame.origin.y += 1
