@@ -63,17 +63,57 @@
 		AEB7C428286E861C00FFE98A /* TossClone */ = {
 			isa = PBXGroup;
 			children = (
-				AEB7C429286E861C00FFE98A /* AppDelegate.swift */,
-				AEB7C42B286E861C00FFE98A /* SceneDelegate.swift */,
+				AEB7C44928709E1C00FFE98A /* Application */,
+				AEB7C44828709D7000FFE98A /* ViewController */,
+				AEB7C44628709D3700FFE98A /* Literal */,
+				AEB7C44728709D3F00FFE98A /* Extension */,
+				AEB7C44A28709E3500FFE98A /* SupportingFiles */,
+			);
+			path = TossClone;
+			sourceTree = "<group>";
+		};
+		AEB7C44628709D3700FFE98A /* Literal */ = {
+			isa = PBXGroup;
+			children = (
+				AEB7C432286E861F00FFE98A /* Assets.xcassets */,
+				AEB7C44228709C9900FFE98A /* ImageLiteral.swift */,
+			);
+			path = Literal;
+			sourceTree = "<group>";
+		};
+		AEB7C44728709D3F00FFE98A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				AEB7C44428709CE500FFE98A /* CALayer+RoundedBorder.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		AEB7C44828709D7000FFE98A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
 				AEB7C4402870245E00FFE98A /* CustomTabBarController.swift */,
 				AEB7C42D286E861C00FFE98A /* HomeViewController.swift */,
-				AEB7C44228709C9900FFE98A /* ImageLiteral.swift */,
-				AEB7C44428709CE500FFE98A /* CALayer+RoundedBorder.swift */,
-				AEB7C432286E861F00FFE98A /* Assets.xcassets */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		AEB7C44928709E1C00FFE98A /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				AEB7C429286E861C00FFE98A /* AppDelegate.swift */,
+				AEB7C42B286E861C00FFE98A /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		AEB7C44A28709E3500FFE98A /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
 				AEB7C434286E861F00FFE98A /* LaunchScreen.storyboard */,
 				AEB7C437286E861F00FFE98A /* Info.plist */,
 			);
-			path = TossClone;
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
