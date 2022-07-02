@@ -98,11 +98,11 @@ extension CustomTabBarController {
     }
 
     private func createNavigationVC(item: TabItems) -> UINavigationController {
-        let vc = UINavigationController(rootViewController: item.viewController())
-        vc.tabBarItem.title = item.name()
-        vc.tabBarItem.image = UIImage(systemName: item.icon()) ?? UIImage(named: item.icon())
+        let navigationVC = UINavigationController(rootViewController: item.viewController())
+        navigationVC.tabBarItem.title = item.name()
+        navigationVC.tabBarItem.image = UIImage(systemName: item.icon()) ?? UIImage(named: item.icon())
 
-        return vc
+        return navigationVC
     }
 
 }
