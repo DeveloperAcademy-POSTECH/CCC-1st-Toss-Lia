@@ -65,7 +65,31 @@ final class CustomTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setTabBarUI()
         setTabBarVC()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setTabBarFrame()
+    }
+
+}
+
+extension CustomTabBarController {
+
+    private func setTabBarUI() {
+        UITabBar.appearance().backgroundImage = UIImage()
+        tabBar.layer.applyRoundedBorder()
+        tabBar.barTintColor = .lightGray
+        tabBar.tintColor = .label
+    }
+    
+    private func setTabBarFrame() {
+        var tabFrame = tabBar.frame
+        tabFrame.origin.y += 1
+        tabFrame.size.height += 5
+        tabBar.frame = tabFrame
     }
 
     private func setTabBarVC() {
@@ -79,6 +103,17 @@ final class CustomTabBarController: UITabBarController {
         vc.tabBarItem.image = UIImage(systemName: item.icon()) ?? UIImage(named: item.icon())
 
         return vc
+    }
+
+}
+
+extension CALayer {
+
+    func applyRoundedBorder() {
+        borderWidth = 0.5
+        borderColor = UIColor.tertiaryLabel.cgColor
+        masksToBounds = true
+        cornerRadius = 30
     }
 
 }
