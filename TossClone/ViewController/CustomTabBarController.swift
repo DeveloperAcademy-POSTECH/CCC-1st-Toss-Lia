@@ -49,7 +49,7 @@ final class CustomTabBarController: UITabBarController {
         func viewController() -> UIViewController {
             switch self {
             case .home:
-                return ViewController()
+                return HomeViewController()
             case .benefit:
                 return UIViewController()
             case .remit:
@@ -84,7 +84,7 @@ extension CustomTabBarController {
         tabBar.barTintColor = .lightGray
         tabBar.tintColor = .label
     }
-    
+
     private func setTabBarFrame() {
         var tabFrame = tabBar.frame
         tabFrame.origin.y += 1
@@ -98,22 +98,11 @@ extension CustomTabBarController {
     }
 
     private func createNavigationVC(item: TabItems) -> UINavigationController {
-        let vc = UINavigationController(rootViewController: item.viewController())
-        vc.tabBarItem.title = item.name()
-        vc.tabBarItem.image = UIImage(systemName: item.icon()) ?? UIImage(named: item.icon())
+        let navigationVC = UINavigationController(rootViewController: item.viewController())
+        navigationVC.tabBarItem.title = item.name()
+        navigationVC.tabBarItem.image = UIImage(systemName: item.icon()) ?? UIImage(named: item.icon())
 
-        return vc
-    }
-
-}
-
-extension CALayer {
-
-    func applyRoundedBorder() {
-        borderWidth = 0.5
-        borderColor = UIColor.tertiaryLabel.cgColor
-        masksToBounds = true
-        cornerRadius = 30
+        return navigationVC
     }
 
 }
