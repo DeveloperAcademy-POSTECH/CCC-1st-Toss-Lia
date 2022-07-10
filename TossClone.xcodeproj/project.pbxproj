@@ -16,6 +16,7 @@
 		AEB7C4412870245E00FFE98A /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7C4402870245E00FFE98A /* CustomTabBarController.swift */; };
 		AEB7C44328709C9900FFE98A /* ImageLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7C44228709C9900FFE98A /* ImageLiteral.swift */; };
 		AEB7C44528709CE500FFE98A /* CALayer+RoundedBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7C44428709CE500FFE98A /* CALayer+RoundedBorder.swift */; };
+		AEB7C44C287B1C2200FFE98A /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7C44B287B1C2200FFE98A /* CustomCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		AEB7C4402870245E00FFE98A /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		AEB7C44228709C9900FFE98A /* ImageLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiteral.swift; sourceTree = "<group>"; };
 		AEB7C44428709CE500FFE98A /* CALayer+RoundedBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+RoundedBorder.swift"; sourceTree = "<group>"; };
+		AEB7C44B287B1C2200FFE98A /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				AEB7C44928709E1C00FFE98A /* Application */,
-				AEB7C44828709D7000FFE98A /* ViewController */,
+				AEB7C44828709D7000FFE98A /* View */,
 				AEB7C44628709D3700FFE98A /* Literal */,
 				AEB7C44728709D3F00FFE98A /* Extension */,
 				AEB7C44A28709E3500FFE98A /* SupportingFiles */,
@@ -89,13 +91,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		AEB7C44828709D7000FFE98A /* ViewController */ = {
+		AEB7C44828709D7000FFE98A /* View */ = {
 			isa = PBXGroup;
 			children = (
 				AEB7C4402870245E00FFE98A /* CustomTabBarController.swift */,
 				AEB7C42D286E861C00FFE98A /* HomeViewController.swift */,
+				AEB7C44B287B1C2200FFE98A /* CustomCell.swift */,
 			);
-			path = ViewController;
+			path = View;
 			sourceTree = "<group>";
 		};
 		AEB7C44928709E1C00FFE98A /* Application */ = {
@@ -213,6 +216,7 @@
 				AEB7C42A286E861C00FFE98A /* AppDelegate.swift in Sources */,
 				AEB7C4412870245E00FFE98A /* CustomTabBarController.swift in Sources */,
 				AEB7C42C286E861C00FFE98A /* SceneDelegate.swift in Sources */,
+				AEB7C44C287B1C2200FFE98A /* CustomCell.swift in Sources */,
 				AEB7C44328709C9900FFE98A /* ImageLiteral.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
