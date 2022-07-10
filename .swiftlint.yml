@@ -86,6 +86,7 @@ file_name:
     - TestHelpers.swift
     - shim.swift
     - AutomaticRuleTests.generated.swift
+line_length: 130
 
 custom_rules:
   rule_id:
