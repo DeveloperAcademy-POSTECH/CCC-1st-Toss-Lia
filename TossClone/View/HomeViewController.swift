@@ -9,7 +9,7 @@ import UIKit
 
 final class HomeViewController: UIViewController {
 
-    private let logoView: UIStackView = {
+    private lazy var logoView: UIStackView = {
         let logoImage = UIImage(named: ImageLiteral.logo)
         let button = UIButton()
         button.setImage(logoImage, for: .normal)
@@ -21,18 +21,18 @@ final class HomeViewController: UIViewController {
         return stack
     }()
 
-    private let chatBarItem: UIBarButtonItem = {
+    private lazy var chatBarItem: UIBarButtonItem = {
         let chatImage = UIImage(systemName: "message.fill")
         let chatBarItem = UIBarButtonItem(image: chatImage, style: .plain,
-                                          target: HomeViewController.self, action: #selector(chatButtonPressed))
+                                          target: self, action: #selector(chatButtonPressed))
         chatBarItem.tintColor = .systemGray
         return chatBarItem
     }()
 
-    private let bellBarItem: UIBarButtonItem = {
+    private lazy var bellBarItem: UIBarButtonItem = {
         let bellImage = UIImage(systemName: "bell.fill")
         let bellBarItem = UIBarButtonItem(image: bellImage, style: .plain,
-                                          target: HomeViewController.self, action: #selector(bellButtonPressed))
+                                          target: self, action: #selector(bellButtonPressed))
         bellBarItem.tintColor = .systemGray
         return bellBarItem
     }()

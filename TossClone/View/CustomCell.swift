@@ -9,7 +9,7 @@ import UIKit
 
 class CustomCell: UICollectionViewCell {
 
-    var tmpLabel = UILabel()
+    lazy var tmpLabel = UILabel()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
