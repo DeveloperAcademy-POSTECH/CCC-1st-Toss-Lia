@@ -17,6 +17,7 @@
 		AEB7C44328709C9900FFE98A /* ImageLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7C44228709C9900FFE98A /* ImageLiteral.swift */; };
 		AEB7C44528709CE500FFE98A /* CALayer+RoundedBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7C44428709CE500FFE98A /* CALayer+RoundedBorder.swift */; };
 		AEB7C44C287B1C2200FFE98A /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7C44B287B1C2200FFE98A /* CustomCell.swift */; };
+		AEB7C44E287B1FF800FFE98A /* UIViewController+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7C44D287B1FF800FFE98A /* UIViewController+Preview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		AEB7C44228709C9900FFE98A /* ImageLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiteral.swift; sourceTree = "<group>"; };
 		AEB7C44428709CE500FFE98A /* CALayer+RoundedBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+RoundedBorder.swift"; sourceTree = "<group>"; };
 		AEB7C44B287B1C2200FFE98A /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		AEB7C44D287B1FF800FFE98A /* UIViewController+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Preview.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				AEB7C44428709CE500FFE98A /* CALayer+RoundedBorder.swift */,
+				AEB7C44D287B1FF800FFE98A /* UIViewController+Preview.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				AEB7C42E286E861C00FFE98A /* HomeViewController.swift in Sources */,
 				AEB7C44528709CE500FFE98A /* CALayer+RoundedBorder.swift in Sources */,
 				AEB7C42A286E861C00FFE98A /* AppDelegate.swift in Sources */,
+				AEB7C44E287B1FF800FFE98A /* UIViewController+Preview.swift in Sources */,
 				AEB7C4412870245E00FFE98A /* CustomTabBarController.swift in Sources */,
 				AEB7C42C286E861C00FFE98A /* SceneDelegate.swift in Sources */,
 				AEB7C44C287B1C2200FFE98A /* CustomCell.swift in Sources */,

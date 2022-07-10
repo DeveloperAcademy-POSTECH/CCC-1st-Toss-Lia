@@ -5,6 +5,7 @@
 //  Created by 리아 on 2022/07/01.
 //
 
+import SwiftUI
 import UIKit
 
 final class HomeViewController: UIViewController {
@@ -154,4 +155,10 @@ extension HomeViewController: UICollectionViewDelegate {
         dataSource.apply(snapshot)
     }
 
+}
+
+struct HomeViewControllerPreview: PreviewProvider {
+    static var previews: some View {
+        HomeViewController().toPreview()
+    }
 }
