@@ -17,7 +17,7 @@ class HomeListCell: UICollectionViewCell {
     lazy var button: UIButton = {
         var configuration = UIButton.Configuration.filled()
         configuration.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 15)
-        configuration.baseBackgroundColor = .tertiarySystemBackground
+        configuration.baseBackgroundColor = .systemGroupedBackground
         configuration.baseForegroundColor = .secondaryLabel
         configuration.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
             var outgoing = incoming
@@ -92,7 +92,7 @@ extension HomeListCell {
 struct CustomCellPreview: PreviewProvider {
 
     static var previews: some View {
-        HomeListCell().toPreview().preferredColorScheme(.dark)
+        HomeListCell().toPreview() // .preferredColorScheme(.dark)
     }
 
 }

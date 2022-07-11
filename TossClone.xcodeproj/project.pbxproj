@@ -20,6 +20,7 @@
 		AEB7C44E287B1FF800FFE98A /* UIViewController+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7C44D287B1FF800FFE98A /* UIViewController+Preview.swift */; };
 		AEB7C450287C52D100FFE98A /* SupplymentaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7C44F287C52D100FFE98A /* SupplymentaryView.swift */; };
 		AEB7C452287C532500FFE98A /* SectionBackgroundDecorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7C451287C532500FFE98A /* SectionBackgroundDecorationView.swift */; };
+		AEB7C454287C79A200FFE98A /* HomeEtcCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7C453287C79A200FFE98A /* HomeEtcCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		AEB7C44D287B1FF800FFE98A /* UIViewController+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Preview.swift"; sourceTree = "<group>"; };
 		AEB7C44F287C52D100FFE98A /* SupplymentaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplymentaryView.swift; sourceTree = "<group>"; };
 		AEB7C451287C532500FFE98A /* SectionBackgroundDecorationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionBackgroundDecorationView.swift; sourceTree = "<group>"; };
+		AEB7C453287C79A200FFE98A /* HomeEtcCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEtcCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				AEB7C4402870245E00FFE98A /* CustomTabBarController.swift */,
 				AEB7C42D286E861C00FFE98A /* HomeViewController.swift */,
 				AEB7C44B287B1C2200FFE98A /* HomeListCell.swift */,
+				AEB7C453287C79A200FFE98A /* HomeEtcCell.swift */,
 				AEB7C451287C532500FFE98A /* SectionBackgroundDecorationView.swift */,
 				AEB7C44F287C52D100FFE98A /* SupplymentaryView.swift */,
 			);
@@ -225,6 +228,7 @@
 				AEB7C42A286E861C00FFE98A /* AppDelegate.swift in Sources */,
 				AEB7C44E287B1FF800FFE98A /* UIViewController+Preview.swift in Sources */,
 				AEB7C4412870245E00FFE98A /* CustomTabBarController.swift in Sources */,
+				AEB7C454287C79A200FFE98A /* HomeEtcCell.swift in Sources */,
 				AEB7C42C286E861C00FFE98A /* SceneDelegate.swift in Sources */,
 				AEB7C450287C52D100FFE98A /* SupplymentaryView.swift in Sources */,
 				AEB7C44C287B1C2200FFE98A /* HomeListCell.swift in Sources */,
