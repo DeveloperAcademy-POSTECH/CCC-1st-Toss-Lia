@@ -14,7 +14,22 @@ class HomeListCell: UICollectionViewCell {
     lazy var descriptionLabel = UILabel()
     lazy var mainLabel = UILabel()
     lazy var labelStackView = UIStackView(arrangedSubviews: [descriptionLabel, mainLabel])
-    lazy var button = UIButton()
+    lazy var button: UIButton = {
+        var configuration = UIButton.Configuration.filled()
+        configuration.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 15)
+        configuration.baseBackgroundColor = .tertiarySystemBackground
+        configuration.baseForegroundColor = .secondaryLabel
+        configuration.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
+            var outgoing = incoming
+            outgoing.font = .boldSystemFont(ofSize: 15)
+            return outgoing
+        }
+        $0.configuration = configuration
+        $0.titleLabel?.font = .boldSystemFont(ofSize: 5)
+        $0.layer.masksToBounds = true
+        $0.layer.cornerRadius = 10
+        return $0
+    }(UIButton())
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -53,7 +68,10 @@ extension HomeListCell {
             bankImageView.heightAnchor.constraint(equalToConstant: 40),
             bankImageView.widthAnchor.constraint(equalTo: bankImageView.heightAnchor),
             labelStackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            labelStackView.leadingAnchor.constraint(equalTo: bankImageView.trailingAnchor, constant: 15)
+            labelStackView.leadingAnchor.constraint(equalTo: bankImageView.trailingAnchor, constant: 15),
+            button.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            button.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            button.widthAnchor.constraint(greaterThanOrEqualToConstant: 10)
         ])
     }
 
@@ -66,6 +84,7 @@ extension HomeListCell {
         descriptionLabel.font = .preferredFont(forTextStyle: .footnote)
         descriptionLabel.textColor = .secondaryLabel
         mainLabel.font = .boldSystemFont(ofSize: 18)
+        button.setTitle("오늘", for: .normal)
     }
 
 }
