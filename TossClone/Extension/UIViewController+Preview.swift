@@ -28,3 +28,24 @@ extension UIViewController {
     }
 
 }
+
+extension UIView {
+
+    private struct Preview: UIViewRepresentable {
+
+        let view: UIView
+
+        func makeUIView(context: Context) -> some UIView {
+            return view
+        }
+
+        func updateUIView(_ uiView: UIViewType, context: Context) {
+        }
+
+    }
+
+    func toPreview() -> some View {
+        Preview(view: self)
+    }
+
+}

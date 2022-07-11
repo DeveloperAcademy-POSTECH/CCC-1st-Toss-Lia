@@ -169,8 +169,8 @@ extension HomeViewController: UICollectionViewDelegate {
     }
 
     private func configureDataSource() {
-        let cellRegisteration = UICollectionView.CellRegistration<CustomCell, Item> { cell, _, _ in
-            cell.tmpLabel.text = "any"
+        let cellRegisteration = UICollectionView.CellRegistration<HomeListCell, Item> { cell, _, _ in
+            cell.mainLabel.text = "any"
         }
 
         dataSource = DataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
