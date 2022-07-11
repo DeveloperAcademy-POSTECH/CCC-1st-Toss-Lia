@@ -13,7 +13,7 @@ class CustomCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.backgroundColor = .systemBackground
+        contentView.backgroundColor = .clear
         configureLabel()
     }
 
