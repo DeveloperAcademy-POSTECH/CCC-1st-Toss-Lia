@@ -79,9 +79,8 @@ final class CustomTabBarController: UITabBarController {
 extension CustomTabBarController {
 
     private func setTabBarUI() {
-        UITabBar.appearance().backgroundImage = UIImage()
         tabBar.layer.applyRoundedBorder()
-        tabBar.barTintColor = .lightGray
+        tabBar.barTintColor = .systemBackground
         tabBar.tintColor = .label
     }
 
