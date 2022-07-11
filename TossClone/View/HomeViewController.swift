@@ -10,6 +10,9 @@ import UIKit
 
 final class HomeViewController: UIViewController {
 
+    private let headerType = "section-header-element-kind"
+    private let footerType = "section-footer-element-kind"
+
     private lazy var logoView: UIStackView = {
         let logoImage = UIImage(named: ImageLiteral.logo)
         let button = UIButton()
@@ -43,6 +46,19 @@ final class HomeViewController: UIViewController {
         case asset
         case consumtion
         case etc
+
+        func name() -> String {
+            switch self {
+            case .bank:
+                return "토스뱅크"
+            case .asset:
+                return "자산"
+            case .consumtion:
+                return "소비"
+            case .etc:
+                return ""
+            }
+        }
     }
 
     struct Item: Hashable {
@@ -57,7 +73,7 @@ final class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemGroupedBackground
         setNavigationItem()
         configureHierarchy()
         configureDataSource()
@@ -88,15 +104,23 @@ extension HomeViewController: UICollectionViewDelegate {
     private func configureHierarchy() {
         collectionView = UICollectionView(frame: view.frame, collectionViewLayout: createLayout())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.backgroundColor = .systemGroupedBackground
+        collectionView.backgroundColor = .clear
         collectionView.delegate = self
         view.addSubview(collectionView)
+    }
+
+    private func createHeaderFooterLayout() -> [NSCollectionLayoutBoundarySupplementaryItem] {
+        let sectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50))
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: sectionHeaderSize, elementKind: headerType, alignment: .topLeading)
+        let sectionFooter = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: sectionHeaderSize, elementKind: footerType, alignment: .bottom)
+
+        return [sectionHeader, sectionFooter]
     }
 
     private func createLayout() -> UICollectionViewLayout {
         typealias SectionProvider = (Int, NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection?
 
-        let sectionProvider: SectionProvider = { sectionIndex, layoutEnvironment in
+        let sectionProvider: SectionProvider = { [weak self] sectionIndex, _ in
 
             guard let sectionType = HomeSection(rawValue: sectionIndex) else { return nil }
 
@@ -115,20 +139,28 @@ extension HomeViewController: UICollectionViewDelegate {
                 section.interGroupSpacing = margin
                 section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
             default:
-                section = NSCollectionLayoutSection.list(using: .init(appearance: .plain),
-                                                         layoutEnvironment: layoutEnvironment)
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50))
+                let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+                section = NSCollectionLayoutSection(group: group)
+
+                if let headerFooter = self?.createHeaderFooterLayout() {
+                    section.boundarySupplementaryItems = headerFooter
+                }
             }
-            section.contentInsets = NSDirectionalEdgeInsets(top: margin, leading: margin,
-                                                            bottom: margin, trailing: margin)
             return section
         }
         return UICollectionViewCompositionalLayout(sectionProvider: sectionProvider)
     }
 
+    typealias SupplymentaryViewRegistration = UICollectionView.SupplementaryRegistration<SupplymentaryView>
+
     private func configureDataSource() {
         let cellRegisteration = UICollectionView.CellRegistration<CustomCell, Item> { cell, _, _ in
             cell.tmpLabel.text = "any"
         }
+
         dataSource = DataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
             guard let section = HomeSection(rawValue: indexPath.section) else { return nil }
             switch section {
@@ -142,6 +174,25 @@ extension HomeViewController: UICollectionViewDelegate {
                 return collectionView.dequeueConfiguredReusableCell(using: cellRegisteration, for: indexPath, item: item)
             }
         })
+
+        let headerRegisteration = SupplymentaryViewRegistration(elementKind: headerType) { supplementaryView, _, index in
+            guard let section = HomeSection(rawValue: index.section) else { return }
+            supplementaryView.label.text = section.name()
+            supplementaryView.view.layer.cornerRadius = 30
+            supplementaryView.view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        }
+
+        let footerRegisteration = SupplymentaryViewRegistration(elementKind: footerType) { supplementaryView, _, _ in
+            supplementaryView.label.isHidden = true
+            supplementaryView.view.layer.cornerRadius = 30
+            supplementaryView.view.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        }
+
+        dataSource.supplementaryViewProvider = { collectionView, type, index in
+            let headerFooterRegisteration = type == self.headerType ? headerRegisteration : footerRegisteration
+            return self.collectionView.dequeueConfiguredReusableSupplementary(using: headerFooterRegisteration, for: index)
+        }
+
     }
 
     private func applySnapShot() {
@@ -161,4 +212,51 @@ struct HomeViewControllerPreview: PreviewProvider {
     static var previews: some View {
         HomeViewController().toPreview()
     }
+}
+
+class SupplymentaryView: UICollectionReusableView {
+
+    lazy var label = UILabel()
+    lazy var view = UIView()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubviews()
+        setUI()
+        layoutsubViews()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+
+    private func addSubviews() {
+        addSubview(view)
+        addSubview(label)
+    }
+
+    private func layoutsubViews() {
+        label.translatesAutoresizingMaskIntoConstraints = false
+        view.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            heightAnchor.constraint(equalToConstant: 60),
+            label.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            label.heightAnchor.constraint(greaterThanOrEqualToConstant: 30),
+            label.widthAnchor.constraint(greaterThanOrEqualToConstant: 10),
+            label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+
+            view.topAnchor.constraint(equalTo: self.topAnchor),
+            view.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            view.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            view.leadingAnchor.constraint(equalTo: self.leadingAnchor)
+        ])
+    }
+
+    private func setUI() {
+        view.backgroundColor = .systemBackground
+        label.text = "title"
+        label.font = .boldSystemFont(ofSize: 26)
+    }
+
 }
