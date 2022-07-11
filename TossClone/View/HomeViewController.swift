@@ -145,7 +145,7 @@ extension HomeViewController: UICollectionViewDelegate {
             default:
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50))
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(90))
                 let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
                 let backgroundDecoration = NSCollectionLayoutDecorationItem.background(elementKind: self!.backgroundType)
                 backgroundDecoration.contentInsets = defaultMargin
@@ -170,7 +170,7 @@ extension HomeViewController: UICollectionViewDelegate {
 
     private func configureDataSource() {
         let cellRegisteration = UICollectionView.CellRegistration<HomeListCell, Item> { cell, _, _ in
-            cell.mainLabel.text = "any"
+//            cell.mainLabel.text = "any"
         }
 
         dataSource = DataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
@@ -204,9 +204,9 @@ extension HomeViewController: UICollectionViewDelegate {
         var snapshot = SnapShot()
         let sections = HomeSection.allCases
         snapshot.appendSections(sections)
-        snapshot.appendItems([Item(), Item(), Item(), Item()], toSection: .bank)
-        snapshot.appendItems([Item()], toSection: .asset)
-        snapshot.appendItems([Item()], toSection: .consumtion)
+        snapshot.appendItems([Item()], toSection: .bank)
+        snapshot.appendItems([Item(), Item(), Item(), Item()], toSection: .asset)
+        snapshot.appendItems([Item(), Item()], toSection: .consumtion)
         snapshot.appendItems([Item(), Item(), Item()], toSection: .etc)
         dataSource.apply(snapshot)
     }
