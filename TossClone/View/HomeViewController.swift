@@ -136,11 +136,11 @@ extension HomeViewController: UICollectionViewDelegate {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                                       heightDimension: .fractionalHeight(1))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                       heightDimension: .fractionalHeight(0.5))
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.35),
+                                                       heightDimension: .fractionalHeight(0.25))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                 section = NSCollectionLayoutSection(group: group)
-                section.interGroupSpacing = margin
+                section.interGroupSpacing = 15
                 section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
             default:
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
@@ -169,21 +169,22 @@ extension HomeViewController: UICollectionViewDelegate {
     }
 
     private func configureDataSource() {
-        let cellRegisteration = UICollectionView.CellRegistration<HomeListCell, Item> { cell, _, _ in
-//            cell.mainLabel.text = "any"
+        let listCellRegisteration = UICollectionView.CellRegistration<HomeListCell, Item> { _, _, _ in
+        }
+        let etcCellRegisteration = UICollectionView.CellRegistration<HomeEtcCell, Item> { _, _, _ in
         }
 
         dataSource = DataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
             guard let section = HomeSection(rawValue: indexPath.section) else { return nil }
             switch section {
             case .bank:
-                return collectionView.dequeueConfiguredReusableCell(using: cellRegisteration, for: indexPath, item: item)
+                return collectionView.dequeueConfiguredReusableCell(using: listCellRegisteration, for: indexPath, item: item)
             case .asset:
-                return collectionView.dequeueConfiguredReusableCell(using: cellRegisteration, for: indexPath, item: item)
+                return collectionView.dequeueConfiguredReusableCell(using: listCellRegisteration, for: indexPath, item: item)
             case .consumtion:
-                return collectionView.dequeueConfiguredReusableCell(using: cellRegisteration, for: indexPath, item: item)
+                return collectionView.dequeueConfiguredReusableCell(using: listCellRegisteration, for: indexPath, item: item)
             case .etc:
-                return collectionView.dequeueConfiguredReusableCell(using: cellRegisteration, for: indexPath, item: item)
+                return collectionView.dequeueConfiguredReusableCell(using: etcCellRegisteration, for: indexPath, item: item)
             }
         })
 
@@ -218,7 +219,7 @@ extension HomeViewController: UICollectionViewDelegate {
 struct HomeViewControllerPreview: PreviewProvider {
 
     static var previews: some View {
-        HomeViewController().toPreview()
+        HomeViewController().toPreview() // .preferredColorScheme(.dark)
     }
 
 }
