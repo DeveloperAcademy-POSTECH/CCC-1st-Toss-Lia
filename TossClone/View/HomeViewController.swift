@@ -88,6 +88,7 @@ extension HomeViewController {
     private func setNavigationItem() {
         navigationItem.titleView = logoView
         navigationItem.rightBarButtonItems = [bellBarItem, chatBarItem]
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
 
     @objc func chatButtonPressed() {
