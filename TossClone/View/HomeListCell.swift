@@ -36,7 +36,6 @@ class HomeListCell: UICollectionViewCell {
         contentView.backgroundColor = .clear
         configureUI()
         setLayout()
-        setUI()
     }
 
     required init?(coder: NSCoder) {
@@ -75,16 +74,19 @@ extension HomeListCell {
         ])
     }
 
-    func setUI() {
-        bankImageView.image = UIImage(named: ImageLiteral.bankIcon)
+    func setUI(item: HomeItem) {
+        bankImageView.image = UIImage(named: item.image)
         bankImageView.layer.masksToBounds = true
         bankImageView.layer.cornerRadius = 20
-        descriptionLabel.text = "고객을 위한 혁신"
-        mainLabel.text = "오늘부터, 매일 이자 받으세요"
+        descriptionLabel.text = item.description
+        mainLabel.text = item.main
         descriptionLabel.font = .preferredFont(forTextStyle: .footnote)
         descriptionLabel.textColor = .secondaryLabel
         mainLabel.font = .boldSystemFont(ofSize: 18)
-        button.setTitle("오늘", for: .normal)
+        button.setTitle(item.buttonName(), for: .normal)
+        if item.buttonType == .empty {
+            button.isHidden = true
+        }
     }
 
 }

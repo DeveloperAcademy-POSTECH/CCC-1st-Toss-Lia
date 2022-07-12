@@ -22,6 +22,18 @@ struct HomeItem: Hashable {
     let main: String
     let buttonType: ButtonType
 
+    func buttonName() -> String {
+        switch buttonType {
+        case .remit:
+            return "송금"
+        case .history:
+            return "내역"
+        case .newHistory:
+            return "새 내역 2건"
+        case .empty:
+            return ""
+        }
+    }
 }
 
 struct HomeItemMock {

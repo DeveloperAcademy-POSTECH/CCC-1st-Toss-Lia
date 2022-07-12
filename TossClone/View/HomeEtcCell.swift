@@ -19,7 +19,6 @@ class HomeEtcCell: UICollectionViewCell {
         super.init(frame: frame)
         configureUI()
         setLayout()
-        setUI()
     }
 
     required init?(coder: NSCoder) {
@@ -53,17 +52,20 @@ extension HomeEtcCell {
         ])
     }
 
-    func setUI() {
+    func setUI(item: HomeItem) {
         contentView.backgroundColor = .secondarySystemGroupedBackground
         contentView.layer.cornerRadius = 20
-        descriptionLabel.text = "요즘 인기"
-        mainLabel.text = "오늘의 머니 팁"
+        descriptionLabel.text = item.description
+        mainLabel.text = item.main
         descriptionLabel.font = .preferredFont(forTextStyle: .body)
         descriptionLabel.textColor = .secondaryLabel
         mainLabel.font = .boldSystemFont(ofSize: 18)
-        iconImageView.image = UIImage(named: ImageLiteral.bankIcon)
+        iconImageView.image = UIImage(named: item.image)
         iconImageView.layer.masksToBounds = true
         iconImageView.layer.cornerRadius = 20
+        if item.buttonType == .empty {
+            button.isHidden = true
+        }
     }
 
 }

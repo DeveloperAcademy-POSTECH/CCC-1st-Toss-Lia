@@ -133,7 +133,7 @@ extension HomeViewController: UICollectionViewDelegate {
                                                       heightDimension: .fractionalHeight(1))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.35),
-                                                       heightDimension: .fractionalHeight(0.25))
+                                                       heightDimension: .fractionalHeight(0.23))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                 section = NSCollectionLayoutSection(group: group)
                 section.interGroupSpacing = 15
@@ -165,9 +165,11 @@ extension HomeViewController: UICollectionViewDelegate {
     }
 
     private func configureDataSource() {
-        let listCellRegisteration = UICollectionView.CellRegistration<HomeListCell, HomeItem> { _, _, _ in
+        let listCellRegisteration = UICollectionView.CellRegistration<HomeListCell, HomeItem> { cell, _, item in
+            cell.setUI(item: item)
         }
-        let etcCellRegisteration = UICollectionView.CellRegistration<HomeEtcCell, HomeItem> { _, _, _ in
+        let etcCellRegisteration = UICollectionView.CellRegistration<HomeEtcCell, HomeItem> { cell, _, item in
+            cell.setUI(item: item)
         }
 
         dataSource = DataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
