@@ -63,9 +63,6 @@ extension HomeEtcCell {
         iconImageView.image = UIImage(named: item.image)
         iconImageView.layer.masksToBounds = true
         iconImageView.layer.cornerRadius = 20
-        if item.buttonType == .empty {
-            button.isHidden = true
-        }
     }
 
 }
