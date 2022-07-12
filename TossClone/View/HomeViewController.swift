@@ -62,12 +62,8 @@ final class HomeViewController: UIViewController {
         }
     }
 
-    struct Item: Hashable {
-        let id = UUID()
-    }
-
-    typealias DataSource = UICollectionViewDiffableDataSource<HomeSection, Item>
-    typealias SnapShot = NSDiffableDataSourceSnapshot<HomeSection, Item>
+    typealias DataSource = UICollectionViewDiffableDataSource<HomeSection, HomeItem>
+    typealias SnapShot = NSDiffableDataSourceSnapshot<HomeSection, HomeItem>
 
     private var collectionView: UICollectionView!
     private var dataSource: DataSource!
@@ -169,9 +165,9 @@ extension HomeViewController: UICollectionViewDelegate {
     }
 
     private func configureDataSource() {
-        let listCellRegisteration = UICollectionView.CellRegistration<HomeListCell, Item> { _, _, _ in
+        let listCellRegisteration = UICollectionView.CellRegistration<HomeListCell, HomeItem> { _, _, _ in
         }
-        let etcCellRegisteration = UICollectionView.CellRegistration<HomeEtcCell, Item> { _, _, _ in
+        let etcCellRegisteration = UICollectionView.CellRegistration<HomeEtcCell, HomeItem> { _, _, _ in
         }
 
         dataSource = DataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
@@ -205,10 +201,10 @@ extension HomeViewController: UICollectionViewDelegate {
         var snapshot = SnapShot()
         let sections = HomeSection.allCases
         snapshot.appendSections(sections)
-        snapshot.appendItems([Item()], toSection: .bank)
-        snapshot.appendItems([Item(), Item(), Item(), Item()], toSection: .asset)
-        snapshot.appendItems([Item(), Item()], toSection: .consumtion)
-        snapshot.appendItems([Item(), Item(), Item()], toSection: .etc)
+        snapshot.appendItems(HomeItemMock.bankItemList, toSection: .bank)
+        snapshot.appendItems(HomeItemMock.assetItemList, toSection: .asset)
+        snapshot.appendItems(HomeItemMock.consumtionItemList, toSection: .consumtion)
+        snapshot.appendItems(HomeItemMock.etcItemList, toSection: .etc)
         dataSource.apply(snapshot)
     }
 

@@ -19,4 +19,9 @@ enum ImageLiteral {
     static let bnkBank = "BNK경남은행"
     static let scBank = "SC제일은행"
     static let okBank = "OK저축은행"
+    static let cashBackIcon = "캐시백"
+    static let moneyTipIcon = "머니팁"
+    static let cardBenefitIcon = "카드혜택"
+    static let consumptionIcon = "지출"
+    static let wooriCardIcon = "우리카드"
 }
